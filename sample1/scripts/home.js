@@ -26,7 +26,7 @@ animate = new Animate({
     frames: images,
     canvasWrapperID: 'canvas_wrapper',
     canvasWidth: '500',
-    canvasHeight: '400',
+    canvasHeight: '300',
     fps: fpsInput.value || 30 // frames per second
 });
 

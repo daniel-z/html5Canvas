@@ -61,7 +61,7 @@ var Animate = function(options) {
         continueAnimation = false;
     },
 
-    animate = function() {
+    animate = function(options) {
         setTimeout(function() {
             image.src = getNextFrame();
             if(shouldIContinueAnimation()) {

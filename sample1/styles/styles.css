@@ -1,6 +1,12 @@
 
+body, .content, header {
+    min-width: 500px;
+}
+
 body {
     font-family: sans-serif;
+    font-family: 'Kite One', sans-serif;
+    background-color: #E7E1CB;
 }
 
 .simple_border {
@@ -13,11 +19,15 @@ header {
     border-bottom: 1px solid #b9b9b9;
     box-shadow: 1px 1px 1px #b9b9b9;
     text-align: center;
+    font-family: 'Kite One', sans-serif;
+    background-color: #503852;
+    color: #E7E2C2;
 }
 
 header h1 {
-    font-size: 45px;
+    font-size: 35px;
     padding-top: 20px;
+    text-transform: uppercase;
 }
 
 .content {
@@ -29,13 +39,49 @@ header h1 {
     margin: auto;
     padding: 10px;
 }
+
+.animation_parameters, .animation_parameters input {
+    background-color: #DCBBB2;
+}
 .animation_parameters {
     width: 100%;
     display: inline-block;
     margin: 10px auto;
+    padding: 8px 0;
+    box-shadow: 0px 1px 1px #ffffff;
+}
+
+.animation_parameters p {
+    padding: 10px;
+    font-size: 18px;
+    color: #323232;
+}
+
+.animation_parameters input {
+    border: none;
+    text-align: center;
+    font-size: 22px;
+    border: 1px solid #E7E1CB;
+}
+
+.animation_parameters input:hover {
+    background-color: #E7E1CB;
+}
+
+.animation_parameters input.fps {
+    padding: 5px;
+    max-width: 32px;
+}
+
+.animation_parameters input[type="button"] {
+    font-size: 18px;
+    padding: 5px 20px;
+    box-shadow: 1px 1px 1px #777;
 }
 
 canvas {
-    border: 1px solid #b9b9b9;
-    box-shadow: 1px 1px 10px #b9b9b9;
+    /*border: 1px solid #b9b9b9;*/
+    /*box-shadow: 1px 10px 20px #000;*/
+    background-color: #7E7E7E;
+    box-shadow: 0px 1px 1px #ffffff;
 }
