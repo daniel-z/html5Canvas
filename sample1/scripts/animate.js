@@ -1,7 +1,3 @@
-// ---
-// This is were the magic happens
-// ---
-
 var Animate = function(options) {
     var
     canvasWrapper,
@@ -86,28 +82,3 @@ var Animate = function(options) {
         stop: stopAnimation,
     };
 };
-
-var images = [
-    'images/bicicle1.jpg',
-    'images/bicicle2.jpg',
-    'images/bicicle3.jpg',
-    'images/bicicle4.jpg',
-    'images/bicicle5.jpg',
-    'images/bicicle6.jpg',
-    'images/bicicle7.jpg',
-    'images/bicicle8.jpg',
-    'images/bicicle9.jpg',
-    'images/bicicle10.jpg',
-    'images/bicicle11.jpg'
-],
-
-animate = new Animate({
-    frames: images,
-    canvasWrapperID: 'canvas_wrapper',
-    canvasWidth: '500',
-    canvasHeight: '400',
-    fps: 1 // frames per second
-});
-
-animate.start();
-
