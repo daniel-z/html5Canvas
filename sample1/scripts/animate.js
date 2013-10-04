@@ -61,24 +61,45 @@ var Animate = function(options) {
         continueAnimation = false;
     },
 
-    animate = function(options) {
+    isRunning = function() {
+        return continueAnimation;
+    },
+
+    animate = function(framesPerSecond) {
+        var localAnimationSpeed = animationSpeed;
+        if (framesPerSecond) {
+            localAnimationSpeed = (1000 / framesPerSecond);
+        }
+
         setTimeout(function() {
             image.src = getNextFrame();
             if(shouldIContinueAnimation()) {
-                animate();
+                animate(framesPerSecond);
             }
-        }, animationSpeed);
+        }, localAnimationSpeed);
     },
 
-    startAnimation = function() {
+    startAnimation = function(framesPerSecond) {
+        if (isRunning()) {
+            return false;
+        }
         continueAnimation = true;
-        animate();
+        animate(framesPerSecond);
+    },
+
+    restartAnimation = function(framesPerSecond) {
+        stopAnimation();
+        setTimeout(function(){
+            startAnimation(framesPerSecond)
+        },500);
     };
 
     init();
 
     return {
         start: startAnimation,
+        restart: restartAnimation,
         stop: stopAnimation,
+        isRunning: isRunning
     };
 };

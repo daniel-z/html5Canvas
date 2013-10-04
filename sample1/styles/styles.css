@@ -64,7 +64,8 @@ header h1 {
     border: 1px solid #E7E1CB;
 }
 
-.animation_parameters input:hover {
+.animation_parameters input:hover,
+.animation_parameters input[type="button"].active {
     background-color: #E7E1CB;
 }
 

@@ -1,5 +1,4 @@
 
-
 // ---------------------------------------------------------------------------
 // Js Code for Home Page
 // ---------------------------------------------------------------------------
@@ -21,7 +20,6 @@ images = [
     'images/bicicle10.jpg',
     'images/bicicle11.jpg'
 ],
-
 animate = new Animate({
     frames: images,
     canvasWrapperID: 'canvas_wrapper',
@@ -30,11 +28,50 @@ animate = new Animate({
     fps: fpsInput.value || 30 // frames per second
 });
 
+
+var
+hasClass = function (ele,cls) {
+    return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
+},
+
+removeClass = function (ele,cls) {
+    if (hasClass(ele,cls)) {
+        var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)');
+        ele.className=ele.className.replace(reg,' ');
+    }
+},
+
+addClass = function (ele,cls) {
+    if (!hasClass(ele,cls)) {
+        ele.className += ' ' + cls;
+    }
+},
+
+activateButton = function(button) {
+    if (!hasClass(button,'active')) {
+        addClass(button,'active');
+    }
+},
+
+desactivateButton = function(button) {
+    removeClass(button,'active');
+};
+
 startButton.addEventListener('click', function(){
-    animate.start();
+    if (animate.isRunning()) {
+        animate.restart(fpsInput.value);
+    } else {
+        startButton.value = 're-start';
+        activateButton(startButton);
+        desactivateButton(stopButton);
+        animate.start(fpsInput.value);
+    }
 });
 
 stopButton.addEventListener('click', function(){
     animate.stop();
+    startButton.value = 'start';
+    activateButton(stopButton);
+    desactivateButton(startButton);
 });
 
