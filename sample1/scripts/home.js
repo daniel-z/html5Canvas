@@ -7,6 +7,8 @@ var
 fpsInput = document.querySelector('input.fps'),
 startButton = document.querySelector('input.start'),
 stopButton = document.querySelector('input.stop'),
+buttons = document.querySelector('.animation_parameters input'),
+notificationParagraph = document.querySelector('#notifications p'),
 images = [
     'images/bicicle1.jpg',
     'images/bicicle2.jpg',
@@ -55,17 +57,22 @@ activateButton = function(button) {
 
 desactivateButton = function(button) {
     removeClass(button,'active');
+},
+
+updateNotification = function(msg){
+    notificationParagraph.innerHTML = msg;
 };
 
 startButton.addEventListener('click', function(){
     if (animate.isRunning()) {
         animate.restart(fpsInput.value);
     } else {
-        startButton.value = 're-start';
+        startButton.value = 'update';
         activateButton(startButton);
         desactivateButton(stopButton);
         animate.start(fpsInput.value);
     }
+    updateNotification('Is runing at '+fpsInput.value+' frames per second!');
 });
 
 stopButton.addEventListener('click', function(){
@@ -73,5 +80,7 @@ stopButton.addEventListener('click', function(){
     startButton.value = 'start';
     activateButton(stopButton);
     desactivateButton(startButton);
+    updateNotification('Is stopped!');
 });
+
 
