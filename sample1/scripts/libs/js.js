@@ -24,3 +24,4 @@ var js = function() {
         addClass: addClass
     };
 }();
+

@@ -1,0 +1,31 @@
+{
+    "bicicle" : {
+        "width": 400,
+        "height": 400,
+        "images": [
+            "images/bicicle1.jpg",
+            "images/bicicle2.jpg",
+            "images/bicicle3.jpg",
+            "images/bicicle4.jpg",
+            "images/bicicle5.jpg",
+            "images/bicicle6.jpg",
+            "images/bicicle7.jpg",
+            "images/bicicle8.jpg",
+            "images/bicicle9.jpg",
+            "images/bicicle10.jpg",
+            "images/bicicle11.jpg"
+        ]
+    },
+    "wolf" : {
+        "width": 600,
+        "height": 400,
+        "images": [
+            "images/wolf0.png",
+            "images/wolf1.png",
+            "images/wolf2.png",
+            "images/wolf3.png",
+            "images/wolf4.png",
+            "images/wolf5.png"
+        ]
+    }
+}

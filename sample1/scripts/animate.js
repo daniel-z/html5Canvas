@@ -1,3 +1,4 @@
+
 var Animate = function(options) {
     var
     canvasWrapper,
@@ -41,6 +42,27 @@ var Animate = function(options) {
         canvasCtx.drawImage(image, 0, 0);
     },
 
+    updateFrames = function(newFrames){
+        frames = newFrames;
+        if(continueAnimation) {
+            restartAnimation();
+        }
+    },
+
+    updateWidth = function(newWidth){
+        canvas.width = newWidth;
+        if(continueAnimation) {
+            restartAnimation();
+        }
+    },
+
+    updateHeight = function(newHeight){
+        canvas.height = newHeight;
+        if(continueAnimation) {
+            restartAnimation();
+        }
+    },
+
     getNextFrameIndex = function() {
         frameIndex += 1;
         if (frameIndex >= frames.length) {
@@ -65,18 +87,21 @@ var Animate = function(options) {
         return continueAnimation;
     },
 
-    animate = function(framesPerSecond) {
-        var localAnimationSpeed = animationSpeed;
-        if (framesPerSecond) {
-            localAnimationSpeed = (1000 / framesPerSecond);
-        }
+    convertFPStoMiliSec = function(fps) {
+        return 1000 / fps;
+    },
 
-        setTimeout(function() {
+    updateSpeed = function(newFPS){
+        animationSpeed = convertFPStoMiliSec(newFPS);
+    },
+
+    animate = function() {
+            setTimeout(function() {
             image.src = getNextFrame();
             if(shouldIContinueAnimation()) {
-                animate(framesPerSecond);
+                animate();
             }
-        }, localAnimationSpeed);
+        }, animationSpeed);
     },
 
     startAnimation = function(framesPerSecond) {
@@ -84,13 +109,14 @@ var Animate = function(options) {
             return false;
         }
         continueAnimation = true;
+        canvasCtx.clearRect(0,0,canvas.width,canvas.height);
         animate(framesPerSecond);
     },
 
     restartAnimation = function(framesPerSecond) {
         stopAnimation();
         setTimeout(function(){
-            startAnimation(framesPerSecond)
+            startAnimation(framesPerSecond);
         },100);
     };
 
@@ -100,6 +126,10 @@ var Animate = function(options) {
         start: startAnimation,
         restart: restartAnimation,
         stop: stopAnimation,
-        isRunning: isRunning
+        isRunning: isRunning,
+        updateFrames: updateFrames,
+        updateWidth: updateWidth,
+        updateHeight: updateHeight,
+        updateSpeed: updateSpeed
     };
 };
