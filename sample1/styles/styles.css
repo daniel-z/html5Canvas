@@ -40,9 +40,11 @@ header h1 {
     padding: 10px;
 }
 
-.animation_parameters, .animation_parameters input {
+.animation_parameters, .animation_parameters input,.animation_parameters select {
     background-color: #DCBBB2;
+
 }
+
 .animation_parameters {
     width: 100%;
     display: inline-block;
@@ -57,11 +59,16 @@ header h1 {
     color: #323232;
 }
 
-.animation_parameters input {
+.animation_parameters input, .animation_parameters select {
     border: none;
     text-align: center;
     font-size: 22px;
     border: 1px solid #E7E1CB;
+    font-family: 'Kite One', sans-serif;
+}
+
+.animation_parameters select {
+    margin: 0 6px;
 }
 
 .animation_parameters input:hover,
