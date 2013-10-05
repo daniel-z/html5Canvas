@@ -91,7 +91,7 @@ var Animate = function(options) {
         stopAnimation();
         setTimeout(function(){
             startAnimation(framesPerSecond)
-        },500);
+        },100);
     };
 
     init();

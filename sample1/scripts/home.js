@@ -31,32 +31,14 @@ animate = new Animate({
 });
 
 
-var
-hasClass = function (ele,cls) {
-    return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
-},
-
-removeClass = function (ele,cls) {
-    if (hasClass(ele,cls)) {
-        var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)');
-        ele.className=ele.className.replace(reg,' ');
-    }
-},
-
-addClass = function (ele,cls) {
-    if (!hasClass(ele,cls)) {
-        ele.className += ' ' + cls;
-    }
-},
-
-activateButton = function(button) {
-    if (!hasClass(button,'active')) {
-        addClass(button,'active');
+var activateButton = function(button) {
+    if (!js.hasClass(button,'active')) {
+        js.addClass(button,'active');
     }
 },
 
 desactivateButton = function(button) {
-    removeClass(button,'active');
+    js.removeClass(button,'active');
 },
 
 updateNotification = function(msg){
